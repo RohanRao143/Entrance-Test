@@ -1,5 +1,5 @@
-## This is an full stack application where you can add questions along with options to it.
+## This is a full stack application where you can add questions along with options to it.
 
-####work progress
+#### work progress
 
 **Schemas defined for Employees, Questions and Streams**
