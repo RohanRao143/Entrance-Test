@@ -85,6 +85,9 @@ app.use('/users', usersRouter);
  * controller methods
  */
 
+//Get all questions
+app.get('/questions',controller.getQuestions);
+
 //to add a question.
 app.post('/question',controller.addQuestion);
 
@@ -93,6 +96,8 @@ app.post('/employee',controller.addEmployee);
 
 //to add an stream
 app.post('/stream',controller.addStream)
+
+app.get('/jumbleoptions',controller.jumbleOptions);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
