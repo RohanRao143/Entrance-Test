@@ -2,4 +2,6 @@
 
 #### work progress
 
-**Schemas defined for Employees, Questions and Streams**
+*Schemas defined for Employees, Questions and Streams*
+
+*Options of all questions can be jumbled*
