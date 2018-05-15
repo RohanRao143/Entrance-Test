@@ -1,0 +1,9 @@
+{
+    "/node_api/*": {
+        "target": "http://172.16.0.77:4001",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {"^/node_api": ""}
+    }
+}
