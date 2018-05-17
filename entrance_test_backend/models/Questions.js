@@ -4,7 +4,7 @@ const questionSchema = new mongoose.Schema({
     id:Number,
     question:String,
     options:Array,
-    stream_id:Number,
+    category_id:Number,
     created_by:Number,
     update_by:Number
 },{timestamps:true});

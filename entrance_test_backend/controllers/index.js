@@ -1,12 +1,17 @@
 const Employees = require('../models/Employees');
 const Questions = require('../models/Questions');
 const Streams = require('../models/Streams');
+const Categories = require('../models/Categories');
+const Tests = require('../models/Tests');
+
+
+//add question controller
 
 exports.addQuestion = (req, res) => {
     Questions.findOne({ question: req.body.question }, (err, question) => {
         if (!question) {
             Questions.count({}, (err, count) => {
-                Streams.findOne({ type: req.body.stream }, (err, stream) => {
+                Categories.findOne({ type: req.body.category }, (err, category) => {
                     Employees.findOne({ name: req.body.name }, (err, employee) => {
                         var options = []
                         for (let i = 0; i < req.body.options.length; i++) {
@@ -15,7 +20,7 @@ exports.addQuestion = (req, res) => {
                         var question = new Questions({
                             id: count + 1,
                             question: req.body.question,
-                            stream_id: stream.id,
+                            category_id: category.id,
                             created_by: employee.id,
                             options: options
                         });
@@ -33,6 +38,8 @@ exports.addQuestion = (req, res) => {
         }
     })
 }
+
+// add employee controller
 
 exports.addEmployee = (req, res) => {
     Employees.count({}, (err, count) => {
@@ -59,6 +66,8 @@ exports.addEmployee = (req, res) => {
     })
 }
 
+//addstream controller
+
 exports.addStream = (req, res) => {
     Streams.count({}, (err, count) => {
         Employees.findOne({ name: req.body.name }, (err, employee) => {
@@ -76,6 +85,104 @@ exports.addStream = (req, res) => {
         })
     })
 }
+
+//controller to add an category
+
+exports.addCategory = (req,res)=>{
+    Categories.count({},(err,count)=>{
+        if(err)
+            res.json({err:err,result:'cant read the categories database'});
+        else{
+            Streams.findOne({type:req.body.stream},(err,stream)=>{
+                if(err)
+                    res.json({err:err,result:'cant read stream database'});
+                else{
+                    Employees.findOne({name:req.body.employee}, (err,employee)=>{
+                        if(err)
+                            res.json({err:err,result:'cant read the employee datebase'});
+                        else{
+                            Categories.findOne({category:req.body.category},(err,category)=>{
+                                if(err)
+                                    res.json({result:'cant read the the category database'});
+                                else if(category)
+                                    res.json({result:'category is already exsisting'});
+                                else{
+                                    var newCategory = new Categories({
+                                        id:count+1,
+                                        category:req.body.category,
+                                        count:req.body.count,
+                                        stream_id:stream.id,
+                                        created_by:employee.id,
+                                    })
+                                    newCategory.save((err,category)=>{
+                                        if(err)
+                                            res.json({error:err,result:'cant save the category'})
+                                        res.json({category:category,result:'category saved'});
+                                    })
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
+        //agregate query to return only limited no of fields per document.
+        // Questions.find({}, {question:1,_id:0},(err, questions) => {
+    })
+}
+
+//controller to add a test
+
+exports.addTest = (req,res)=>{
+    Tests.count({},(err,count)=>{
+        console.log(count)
+        if(err)
+            res.json({err:err,result:'cannot count the test docs'});
+        else{
+            Employees.findOne({name:req.body.name},{id:1,_id:0},(err,employee)=>{
+        console.log(employee)                
+                if(err)
+                    res.json({err:err,result:'cannot read the employees database'});
+                Tests.findOne({name:req.body.test},{name:1,_id:0},(err,test)=>{
+        console.log(test)                    
+                    if(err)
+                        res.json({err:err,result:'cannot read the test collection'})
+                    else if(test)
+                        Tests.findOne({name:req.body.test}).remove((err,test)=>{
+                            if(err)
+                                res.json({result:'cannot overwrite the collection'})
+                            if(test){
+                                var test = new Tests({
+                                    id:count+1,
+                                    name:req.body.test,
+                                    count:req.body.count,
+                                    created_by:employee.id
+                                });
+                                test.save((err,test)=>{
+                                    if(err)
+                                        res.json({err:err,result:'cannot save test'});
+                                })
+                            }
+                        })
+                    else{
+                        var test = new Tests({
+                            id:count+1,
+                            name:req.body.test,
+                            count:req.body.count,
+                            created_by:employee.id
+                        });
+                        test.save((err,test)=>{
+                            if(err)
+                                res.json({err:err,result:'cannot save test'});
+                        })
+                    }
+                })
+            })
+        }
+    })
+}
+
+//Jumble options controller
 
 exports.jumbleOptions = (req, res) => {
     Questions.find({}, (err, questions) => {
@@ -114,7 +221,12 @@ exports.jumbleOptions = (req, res) => {
     })
 }
 
+//controller used to get questions
+
+
 exports.getQuestions = (req, res) => {
+//agregate query to return only limited no of fields per document.
+// Questions.find({}, {question:1,_id:0},(err, questions) => {
     Questions.find({}, (err, questions) => {
         if(err){
             res.json({err:err});
@@ -122,5 +234,34 @@ exports.getQuestions = (req, res) => {
         else{
             res.json(questions);
         }
+    })
+}
+
+//controller to get a question with respect to the test name
+
+exports.getTest = (req,res)=>{
+    var result = []
+    Questions.find({},{_id:0,created_by:0,updated_by:0,createdAt:0,updatedAt:0},(err,questions)=>{
+        if(err)
+            res.json({err:err,result:'questions cannot be fetched'});
+        Tests.findOne({id:req.params.id},{_id:0, created_by:0,updated_by:0},(err,test)=>{
+            if(err)
+                res.json({err:err,result:'cannot read the test collection'})
+            else if(!test)
+                res.json({result:'There is no test based on this id'});
+            else{
+                console.log(test)
+                for(var i=0;i<test.count.length;i++){
+                    var temp = questions.filter((question)=>{
+                        if(question.category_id === test.count[i][0])
+                            return question
+                    })
+                    for(var j=0;j<test.count[i][1];j++){
+                        result.push(temp[j])
+                    }
+                }
+                res.json({result:result});
+            }
+        })
     })
 }

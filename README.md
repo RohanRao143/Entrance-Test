@@ -12,6 +12,10 @@
 
 *Get service implemented to get all questions*
 
+*Tests and Categories schemas have been defined.*
+
+*service to add categories implemented*
+
 ###                                    Frontend Application ###
 
 *Created application using Angular CLI all has been set.*
@@ -27,3 +31,7 @@
 *Using angular material as UI framework.*
 
 *Tool bar for the application has been created , padding issues has been fixed.*
+
+###                                         Database ###
+
+**

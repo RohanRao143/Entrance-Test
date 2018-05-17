@@ -88,6 +88,9 @@ app.use('/users', usersRouter);
 //Get all questions
 app.get('/questions',controller.getQuestions);
 
+//Get questions according to the test id
+app.get('/test/:id',controller.getTest)
+
 //to add a question.
 app.post('/question',controller.addQuestion);
 
@@ -95,8 +98,15 @@ app.post('/question',controller.addQuestion);
 app.post('/employee',controller.addEmployee);
 
 //to add an stream
-app.post('/stream',controller.addStream)
+app.post('/stream',controller.addStream);
 
+//to add a category
+app.post('/category', controller.addCategory);
+
+//to add a test
+app.post('/test',controller.addTest)
+
+//to jumble all options with respect to the questions. 
 app.get('/jumbleoptions',controller.jumbleOptions);
 
 // catch 404 and forward to error handler
