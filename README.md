@@ -16,6 +16,8 @@
 
 *service to add categories implemented*
 
+*Service to add Test implemented*
+
 ###                                    Frontend Application ###
 
 *Created application using Angular CLI all has been set.*
