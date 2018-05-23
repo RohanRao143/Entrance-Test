@@ -4,7 +4,7 @@
 
 ### Backend Application ###
 
-####API####
+#### API ####
 
 *Add service implemented for employees and questions*
 
@@ -17,14 +17,14 @@
 *Service method to add an applicant by admin and multiple tests can be assigned to an applicant*
 
 
-####Models####
+#### Models ####
 
 *Tests and Categories schemas have been defined.*
 
 *Schemas defined for Employees, Questions and Streams*
 
 
-####Fucntionalities####
+#### Fucntionalities ####
 
 *Options of all questions can be jumbled*
 
@@ -57,6 +57,6 @@
 
 ### Database ###
 
-####Functionalities####
+#### Functionalities ####
 
 *Result of an applicant will be stored*
