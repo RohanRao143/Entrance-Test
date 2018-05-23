@@ -13,6 +13,10 @@ export class QuestionService implements OnInit {
   constructor(private http:HttpClient) { }
 
   getQuestions():any{
-    return this.http.get<any>('node_api/questions')
+    return this.http.get<any>('node_api/questions');
+    }
+
+    getTestPaper(id:number){
+      return this.http.get<any>('node_api/test/'+id);
     }
 }

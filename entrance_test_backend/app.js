@@ -103,11 +103,18 @@ app.post('/stream',controller.addStream);
 //to add a category
 app.post('/category', controller.addCategory);
 
+
+//to submit applicants result and update applicant document.
+app.post('/test/:id',controller.updateTest)
+
 //to add a test
-app.post('/test',controller.addTest)
+app.post('/test',controller.addTest);
 
 //to jumble all options with respect to the questions. 
 app.get('/jumbleoptions',controller.jumbleOptions);
+
+//to add an applicant and to generate test id
+app.post('/applicant/:id', controller.addApplicant);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

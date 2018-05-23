@@ -4,6 +4,7 @@ var testSchema = new mongoose.Schema({
     id:Number,
     name:String,
     count:Array,
+    key:Array,
     created_by:Number,
     updated_by:Number
 },{timestamps:true});

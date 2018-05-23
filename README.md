@@ -1,24 +1,41 @@
-## This is a full stack application where you can add questions along with options to it.
+# This is a full stack application where you can add questions along with options to it.#
 
-#### work progress
+## work progress ##
 
-###                                    Backend Application ###
+### Backend Application ###
 
-*Schemas defined for Employees, Questions and Streams*
-
-*Options of all questions can be jumbled*
+####API####
 
 *Add service implemented for employees and questions*
 
 *Get service implemented to get all questions*
 
-*Tests and Categories schemas have been defined.*
-
 *service to add categories implemented*
 
 *Service to add Test implemented*
 
-###                                    Frontend Application ###
+*Service method to add an applicant by admin and multiple tests can be assigned to an applicant*
+
+
+####Models####
+
+*Tests and Categories schemas have been defined.*
+
+*Schemas defined for Employees, Questions and Streams*
+
+
+####Fucntionalities####
+
+*Options of all questions can be jumbled*
+
+*He can signout after completing his current test and the next text will be resumed once he signed in.*
+
+*Applicant will be disqualified if he has not peformed well in the current test.*
+
+
+
+
+### Frontend Application ###
 
 *Created application using Angular CLI all has been set.*
 
@@ -34,6 +51,12 @@
 
 *Tool bar for the application has been created , padding issues has been fixed.*
 
-###                                         Database ###
 
-**
+
+
+
+### Database ###
+
+####Functionalities####
+
+*Result of an applicant will be stored*

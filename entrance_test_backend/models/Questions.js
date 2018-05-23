@@ -5,6 +5,7 @@ const questionSchema = new mongoose.Schema({
     question:String,
     options:Array,
     category_id:Number,
+    textbox:Boolean,
     created_by:Number,
     update_by:Number
 },{timestamps:true});

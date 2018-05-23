@@ -9,12 +9,16 @@ import {MatButtonModule} from '@angular/material/button'
 import { HttpClientModule } from '@angular/common/http'; 
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TechnicalComponent } from './technical/technical.component';
 import { QuestionComponent } from './question/question.component';
+import { TestComponent } from './test/test.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -23,6 +27,8 @@ import { QuestionComponent } from './question/question.component';
     AppComponent,
     TechnicalComponent,
     QuestionComponent,
+    TestComponent,
+    DashboardComponent,
   ],
   //apis you just want to use must be in imports
   imports: [
@@ -34,7 +40,8 @@ import { QuestionComponent } from './question/question.component';
     AppRoutingModule,
     HttpClientModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
