@@ -91,6 +91,9 @@ app.get('/questions',controller.getQuestions);
 //Get questions according to the test id
 app.get('/test/:id',controller.getTest)
 
+//to get a add test form
+app.get('/test', controller.getTestForm)
+
 //to add a question.
 app.post('/question',controller.addQuestion);
 
@@ -115,6 +118,10 @@ app.get('/jumbleoptions',controller.jumbleOptions);
 
 //to add an applicant and to generate test id
 app.post('/applicant/:id', controller.addApplicant);
+
+//get add applicant page
+app.get('/applicant', controller.getApplicantForm)
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

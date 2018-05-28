@@ -16,6 +16,8 @@
 
 *Service method to add an applicant by admin and multiple tests can be assigned to an applicant*
 
+*Add test and get test method updated which will give the same questionnaire to evryone with respect to the test but questions will be jumbled.*
+
 
 #### Models ####
 
@@ -30,7 +32,7 @@
 
 *He can signout after completing his current test and the next text will be resumed once he signed in.*
 
-*Applicant will be disqualified if he has not peformed well in the current test.*
+*Applicant will be disqualified if he scores less than threshold (70 percentile).*
 
 
 
@@ -50,6 +52,8 @@
 *Using angular material as UI framework.*
 
 *Tool bar for the application has been created , padding issues has been fixed.*
+
+*Form to add an applicant.*
 
 
 

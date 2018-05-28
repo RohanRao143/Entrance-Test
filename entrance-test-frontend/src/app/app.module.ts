@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,6 +22,8 @@ import { TechnicalComponent } from './technical/technical.component';
 import { QuestionComponent } from './question/question.component';
 import { TestComponent } from './test/test.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddApplicantComponent } from './add-applicant/add-applicant.component';
+import { AddTestComponent } from './add-test/add-test.component';
 
 
 @NgModule({
@@ -29,6 +34,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     QuestionComponent,
     TestComponent,
     DashboardComponent,
+    AddApplicantComponent,
+    AddTestComponent,
   ],
   //apis you just want to use must be in imports
   imports: [
@@ -41,7 +48,9 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     HttpClientModule,
     MatRadioModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

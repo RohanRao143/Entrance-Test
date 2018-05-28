@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 var testSchema = new mongoose.Schema({
     id:Number,
     name:String,
-    count:Array,
+    questions:Array,    
     key:Array,
     created_by:Number,
     updated_by:Number
