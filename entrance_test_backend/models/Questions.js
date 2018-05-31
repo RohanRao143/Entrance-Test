@@ -6,6 +6,8 @@ const questionSchema = new mongoose.Schema({
     options:Array,
     category_id:Number,
     textbox:Boolean,
+    difficulty_id:Number,
+    active:Boolean,
     created_by:Number,
     update_by:Number
 },{timestamps:true});

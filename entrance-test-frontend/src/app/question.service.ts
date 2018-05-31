@@ -14,9 +14,17 @@ export class QuestionService implements OnInit {
 
   getQuestions():any{
     return this.http.get<any>('node_api/questions');
-    }
+  }
 
-    getTestPaper(id:number){
-      return this.http.get<any>('node_api/test/'+id);
-    }
+  getTestPaper(id:number){
+    return this.http.get<any>('node_api/test/'+id);
+  }
+
+  getApplicantForm(){
+    return this.http.get<any>('node_api/applicant');
+  }
+
+  postApplicant(data){
+    return this.http.post<any>('node_api/applicant/'+data.id ,data)
+  }
 }

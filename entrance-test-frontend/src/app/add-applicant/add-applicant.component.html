@@ -1,10 +1,10 @@
 <form class="example-form">
   <h2>Add an applicant.</h2>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="First Name" value="">
+    <input matInput placeholder="First Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="firstName" >
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input matInput placeholder="Last Name" value="">
+    <input matInput placeholder="Last Name" [ngModelOptions]="{standalone: true}" [(ngModel)]="lastName" >
   </mat-form-field>
   <mat-form-field class="time">
       <mat-select [(value)]="this.hrs">
@@ -19,5 +19,22 @@
         <mat-option value=0>00</mat-option>
         <mat-option value=30>30</mat-option>
       </mat-select>
-    </mat-form-field>  
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Admin" [(value)]="admin">
+          <mat-option *ngFor="let admin of admins" [value]="admin.id">
+            {{ admin.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>   
+      <mat-form-field>
+          <mat-select placeholder="Tests" [(value)]="test">
+            <mat-option *ngFor="let test of tests" [value]="test.id">
+              {{ test.test }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="button-row">
+        <button mat-raised-button (click)="submit()">Submit</button>
+        </div>
 </form>

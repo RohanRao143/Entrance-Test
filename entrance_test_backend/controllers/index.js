@@ -375,13 +375,14 @@ exports.getTest = (req,res)=>{
 //controller to add an applicant.
 
 exports.addApplicant = (req,res)=>{
-    Employees.findOne({name:req.body.admin},{id:1,_id:0},(err,employee)=>{
+    console.log(req.body.admin)
+    Employees.findOne({id:req.body.admin},{id:1,_id:0},(err,employee)=>{
         var applicant = new Applicants({
             id:req.params.id,
             result:[],
             name:req.body.firstname+" "+req.body.lastname,
             tests:req.body.tests,
-            time:10800,
+            time:req.body.time,
             created_by:employee.id,
             current_test:0,
             is_complete:false,

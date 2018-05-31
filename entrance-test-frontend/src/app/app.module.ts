@@ -24,6 +24,7 @@ import { TestComponent } from './test/test.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddApplicantComponent } from './add-applicant/add-applicant.component';
 import { AddTestComponent } from './add-test/add-test.component';
+import { AddQuestionComponent } from './add-question/add-question.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { AddTestComponent } from './add-test/add-test.component';
     DashboardComponent,
     AddApplicantComponent,
     AddTestComponent,
+    AddQuestionComponent,
   ],
   //apis you just want to use must be in imports
   imports: [
@@ -51,6 +53,7 @@ import { AddTestComponent } from './add-test/add-test.component';
     MatInputModule,
     MatSelectModule,
     BrowserAnimationsModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

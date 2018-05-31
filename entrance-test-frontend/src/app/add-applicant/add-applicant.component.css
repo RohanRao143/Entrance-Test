@@ -13,3 +13,8 @@
     max-width: 50px;
     margin: 0px 5px 0px 5px
 }
+.button-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
